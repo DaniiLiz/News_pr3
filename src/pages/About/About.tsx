@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Container, Typography, Box } from "@mui/material";
-import styles from "./About.module.scss";
+
 
 export default function About() {
     return (

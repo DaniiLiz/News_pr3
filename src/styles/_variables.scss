@@ -1,28 +1,36 @@
-@use 'sass:color';
+// Ретро киберпанк палитра
+$background-color: #0d0221;
+$primary-color: #ff3864;
+$secondary-color: #2de2e6;
+$accent-color: #261447;
+$muted-color: #6d44bd;
+$text-color: #f4f4f4;
 
-// Цветовая схема
-$background-color: #0a0a12;
-$primary-color: #6200ea;
-$secondary-color: #03dac6;
-$accent-color: #3700b3;
-$muted-color: #8e8b8b;
-$text-color: #FFFFFF;
+// Эффекты
+$neon-effect-primary: 0 0 10px $primary-color;
+$neon-effect-secondary: 0 0 20px $secondary-color;
+$neon-effect: $neon-effect-primary, $neon-effect-secondary;
 
-$card-bg: color.adjust($background-color, $lightness: -3%);
+// Компоненты
+$card-bg: lighten($background-color, 5%);
+$border-style: 1px solid $muted-color;
+
+// Типографика
+$font-stack-base: 'Courier New', monospace;
+$font-stack-heading: 'VT323', monospace;
+$font-size-base: 16px;
+$line-height-base: 1.6;
 
 // Отступы
-$spacing-xs: 4px;
-$spacing-small: 8px;
-$spacing-medium: 16px;
-$spacing-large: 24px;
-$spacing-xl: 32px;
+$spacing-unit: 8px;
+$spacing-xs: $spacing-unit * 0.5;  // 4px
+$spacing-sm: $spacing-unit;        // 8px
+$spacing-md: $spacing-unit * 2;    // 16px
+$spacing-lg: $spacing-unit * 3;    // 24px
+$spacing-xl: $spacing-unit * 4;    // 32px
 
-// Брейкпоинты
+// Точки перелома
 $breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
 $breakpoint-lg-desktop: 1200px;
-
-// Шрифты
-$font-family: 'Roboto', 'Arial', sans-serif;
-$font-size-base: 16px;

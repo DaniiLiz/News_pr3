@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import type {Tournament} from "../../data/data";
-import { Card, CardMedia, CardContent, Typography, Chip, Box } from "@mui/material";
-import styles from "./EventCard.module.scss";
+import type { Tournament } from "../../data/data"; // Добавлено type-only import
+import { Card, CardMedia, CardContent, Typography, Chip } from "@mui/material";
 
 interface EventCardProps {
     tournament: Tournament;
@@ -11,48 +10,70 @@ interface EventCardProps {
 export default function EventCard({ tournament }: EventCardProps) {
     return (
         <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.3 }}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            layout
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            whileHover={{ scale: 1.02 }}
         >
-            <Card sx={{ maxWidth: 345, height: '100%', display: 'flex', flexDirection: 'column' }}>
-                <Link to={`/event/${tournament.id}`} className={styles.link}>
+            <Card sx={{
+                bgcolor: 'background.paper',
+                border: '2px solid',
+                borderColor: 'secondary.main',
+                boxShadow: 'none',
+                transition: 'all 0.3s',
+                '&:hover': {
+                    boxShadow: '0 0 20px rgba(45, 226, 230, 0.5)'
+                }
+            }}>
+                <Link to={`/event/${tournament.id}`} style={{ textDecoration: 'none' }}>
                     <CardMedia
                         component="img"
                         height="180"
                         image={tournament.image}
                         alt={tournament.title}
+                        sx={{
+                            filter: 'grayscale(30%) contrast(120%)',
+                            borderBottom: '2px solid',
+                            borderColor: 'primary.main'
+                        }}
                     />
-                    <CardContent sx={{ flexGrow: 1 }}>
-                        <Typography gutterBottom variant="h5" component="div">
+                    <CardContent sx={{
+                        bgcolor: 'rgba(38, 20, 71, 0.5)',
+                        color: 'text.primary'
+                    }}>
+                        <Typography
+                            variant="h5"
+                            component="div"
+                            sx={{
+                                fontFamily: '"VT323", monospace',
+                                fontSize: '1.8rem',
+                                color: 'primary.main'
+                            }}
+                        >
                             {tournament.title}
                         </Typography>
-                        <Box display="flex" alignItems="center" mb={1}>
-                            <Chip
-                                label={tournament.game}
-                                size="small"
-                                sx={{
-                                    mr: 1,
-                                    bgcolor: tournament.game === 'Dota 2' ? '#f44336' :
-                                        tournament.game === 'CS2' ? '#ff9800' :
-                                            tournament.game === 'Valorant' ? '#e91e63' : '#4caf50',
-                                    color: 'white'
-                                }}
-                            />
-                            <Typography variant="body2" color="text.secondary">
-                                {tournament.date}
-                            </Typography>
-                        </Box>
-                        <Typography variant="body2" color="text.secondary">
-                            Призовой фонд: {tournament.prizePool}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary" mt={1}>
-                            Статус: {tournament.status === 'upcoming' ? 'Предстоящий' :
-                            tournament.status === 'ongoing' ? 'Идет сейчас' : 'Завершен'}
+
+                        <Chip
+                            label={tournament.game}
+                            size="small"
+                            sx={{
+                                mt: 1,
+                                mb: 2,
+                                bgcolor: 'primary.main',
+                                color: 'background.default',
+                                fontFamily: '"Courier New", monospace',
+                                fontWeight: 'bold'
+                            }}
+                        />
+
+                        <Typography variant="body2" sx={{
+                            color: 'secondary.main',
+                            fontFamily: '"Courier New", monospace',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.5rem'
+                        }}>
+                            <span style={{ color: 'text.primary' }}>PRIZE:</span>
+                            {tournament.prizePool}
                         </Typography>
                     </CardContent>
                 </Link>

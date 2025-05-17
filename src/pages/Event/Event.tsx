@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { tournaments } from "../../data/data";
 import { Button, Container, Typography, Box, Chip, Stack, Divider } from "@mui/material";
 import { Link } from "react-router-dom";
-import styles from "./Event.module.scss";
+
 
 export default function Event() {
     const { eventId } = useParams();
