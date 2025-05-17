@@ -1,0 +1,28 @@
+@use 'sass:color';
+
+// Цветовая схема
+$background-color: #0a0a12;
+$primary-color: #6200ea;
+$secondary-color: #03dac6;
+$accent-color: #3700b3;
+$muted-color: #8e8b8b;
+$text-color: #FFFFFF;
+
+$card-bg: color.adjust($background-color, $lightness: -3%);
+
+// Отступы
+$spacing-xs: 4px;
+$spacing-small: 8px;
+$spacing-medium: 16px;
+$spacing-large: 24px;
+$spacing-xl: 32px;
+
+// Брейкпоинты
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-lg-desktop: 1200px;
+
+// Шрифты
+$font-family: 'Roboto', 'Arial', sans-serif;
+$font-size-base: 16px;

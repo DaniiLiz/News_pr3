@@ -1,0 +1,45 @@
+@use './variables' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  background-color: $background-color;
+  color: $text-color;
+  line-height: 1.6;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: $spacing-large;
+  max-width: $breakpoint-lg-desktop;
+  margin: 0 auto;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: $spacing-medium;
+  color: $primary-color;
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .main-content {
+    padding: $spacing-medium;
+  }
+}

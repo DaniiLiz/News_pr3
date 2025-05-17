@@ -1,0 +1,77 @@
+@use '../../styles/variables' as *;
+
+.container {
+  padding: $spacing-large;
+  background-color: $background-color;
+  min-height: 100vh;
+  color: $text-color;
+}
+
+.backButton {
+  margin-bottom: $spacing-large;
+}
+
+.eventContainer {
+  display: flex;
+  gap: $spacing-xl;
+  max-width: $breakpoint-lg-desktop;
+  margin: 0 auto;
+}
+
+.imageContainer {
+  flex: 1;
+  max-width: 600px;
+
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.content {
+  flex: 1;
+  padding: $spacing-medium;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: $spacing-large;
+  color: $primary-color;
+}
+
+.meta {
+  margin-bottom: $spacing-large;
+
+  p {
+    margin-bottom: $spacing-small;
+    font-size: 1.1rem;
+  }
+}
+
+.label {
+  color: $muted-color;
+  margin-right: $spacing-small;
+}
+
+.description {
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.notFound {
+  text-align: center;
+  padding: $spacing-xl;
+  color: $text-color;
+}
+
+@media (max-width: $breakpoint-desktop) {
+  .eventContainer {
+    flex-direction: column;
+  }
+
+  .imageContainer {
+    max-width: 100%;
+  }
+}

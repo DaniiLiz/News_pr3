@@ -1,0 +1,28 @@
+@use '../../styles/variables' as *;
+
+.container {
+  padding: $spacing-xl;
+  max-width: 900px;
+  margin: 0 auto;
+  color: $text-color;
+  font-family: $font-family;
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  color: $primary-color;
+  margin-bottom: $spacing-large;
+  text-align: center;
+}
+
+.content {
+  font-size: 18px;
+  color: $text-color;
+
+  p {
+    margin-bottom: $spacing-medium;
+  }
+}
